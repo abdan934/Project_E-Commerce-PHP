@@ -24,23 +24,18 @@
         $this->servername=$servername;
         $this->username=$username;
         $this->password=$password;
-
         //create Connection
-
         $this->con=mysqli_connect($servername,$username,$password);
-        
         //check connection
         if(!$this->con){
             die("Connection failed : ".mysqli_connect_error());
         }
-
         //query
         $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
         //execute query
         if(mysqli_query($this->con,$sql)){
             $this->con=mysqli_connect($servername,$username,$password,$dbname);
         }
-       
 
         //create table
         $sql="CREATE TABLE IF NOT EXISTS $tablename

@@ -12,7 +12,7 @@ $database = new createDb(dbname:"Produkdb",tablename:"Produktb");
 if(isset($_POST['add'])){
     // print_r($_POST['id_produk']);
     if(isset($_SESSION['keranjang'])){
-        $item_array_id = array_column($_SESSION['keranjang'],column:"id_produk");
+        $item_array_id = array_column($_SESSION['keranjang'],column_key:"id_produk");
         // print_r($item_array_id);
         // print_r($_SESSION['keranjang']);
 
