@@ -1,5 +1,40 @@
 <?php
- require_once('./php/component.php');
+//start session
+session_start();
+
+require_once('./php/createDb.php');
+require_once('./php/component.php');
+
+//instant create
+$database = new createDb(dbname:"Produkdb",tablename:"Produktb");
+
+
+if(isset($_POST['add'])){
+    // print_r($_POST['id_produk']);
+    if(isset($_SESSION['keranjang'])){
+        $item_array_id = array_column($_SESSION['keranjang'],column:"id_produk");
+        // print_r($item_array_id);
+        // print_r($_SESSION['keranjang']);
+
+        if(in_array($_POST['id_produk'],$item_array_id)){
+            echo"<script>alert('Produk masuk Keranjang...!')</script>";
+            echo"<script>window.location = 'index.php'</script>";
+            
+        }else{
+            $count=count($_SESSION['keranjang']);
+            $item_array=array(
+                'id_produk'=>$_POST['id_produk']
+            );
+            $_SESSION['keranjang'][$count] = $item_array;
+        }
+        
+    }else{
+    // create session baru
+    $_SESSION['keranjang'][0]= $item_array;
+    print_r($_SESSION['keranjang']);
+    }
+}
+
 ?>
 
 
@@ -165,14 +200,18 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
-                        <ul>
+                        <?php
+                        require_once("php/keranjang.php");
+                        // header();
+                        ?>
+                        <!-- <ul>
                             <li>
                                 <a href="#"><i class="fa fa-heart"></i> <span>1</span></a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a>
                             </li>
-                        </ul>
+                        </ul> -->
                         <div class="header__cart__price">Jumlah: <span>RP.300.000,00</span></div>
                     </div>
                 </div>
@@ -294,39 +333,46 @@
     <!-- Categories Section End -->
 
     <!-- Featured Section Begin -->
-    <section class="featured spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Featured Product</h2>
-                    </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
-                        </ul>
+    <form>
+
+        <section class="featured spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <h2>Featured Product</h2>
+                        </div>
+                        <div class="featured__controls">
+                            <ul>
+                                <li class="active" data-filter="*">Semua</li>
+                                <li data-filter=".oranges">Oranges</li>
+                                <li data-filter=".fresh-meat">Fresh Meat</li>
+                                <li data-filter=".vegetables">Vegetables</li>
+                                <li data-filter=".fastfood">Fastfood</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row featured__filter">
+                <div class="row featured__filter">
 
-                <?php
-              component();
-              component();
-              component();
-              component();
-              component();
-              component();
-              component();
-              component();
+                    <?php
+                $result= $database->getData();
+                while($row=mysqli_fetch_assoc($result)){
+                    component($row['nama_produk'],$row['harga_produk'],$row['gambar_produk'],$row['id']);
+                }
+                
+            //   component(namaproduk:"Beras Rakyat",hargaproduk:150000,gambarproduk:"img/featured/beras-3.jpg");
+            //   component(namaproduk:"Telur Puyuh",hargaproduk:100000,gambarproduk:"img/featured/telur-puyuh-2.jpg");
+            //   component(namaproduk:"Mangga",hargaproduk:50000,gambarproduk:"img/featured/pelem.jpg");
+            //   component(namaproduk:"Pisang Raja Nangka",hargaproduk:55000,gambarproduk:"img/featured/gedang-2.jpg");
+            //   component(namaproduk:"Strawberry",hargaproduk:120000,gambarproduk:"img/featured/strawbery-2.jpg");
+            //   component(namaproduk:"Jeruk Mandarin",hargaproduk:90000,gambarproduk:"img/featured/jeruk.jpg");
+            //   component(namaproduk:"Nangka",hargaproduk:45000,gambarproduk:"img/featured/nangka-3.jpg");
+            //   component(namaproduk:"Telur Ayam",hargaproduk:30000,gambarproduk:"img/featured/telur-2.jpg");
 
             ?>
 
-                <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="img/featured/beras-3.jpg">
                             <ul class="featured__item__pic__hover">
@@ -493,10 +539,12 @@
                             <h5>Rp.300.000,00</h5>
                         </div>
                     </div>
-                </div> -->
-            </div>
-        </div>
-    </section>
+                </div>
+            </div>-->
+
+                </div>
+        </section>
+    </form>
     <!-- Featured Section End -->
 
 
@@ -885,5 +933,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
+</html>
 
 </html>
