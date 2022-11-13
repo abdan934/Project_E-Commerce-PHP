@@ -14,8 +14,9 @@ function component($namaproduk,$hargaproduk,$gambarproduk,$id_produk){
                     <a href=\"#\"><i class=\"fa fa-retweet\"></i></a>
                 </li>
                 <li>
-                    <a type=\"submit\" href=\"#\"><i class=\"fa fa-shopping-cart\" name=\"add\"></i></a>
-                    <input type=\"hidden\" name=\"id_produk\" value=\"$id_produk\">
+                <a><button class=\"btn btn-transparent\" type=\"submit\" name=\"add\"><i class=\"fa fa-shopping-cart\"></i></button></a>
+                <input type='hidden' name='id_produk' value='$id_produk'>
+                    <!--<a type=\"submit\" name=\"add\"><i class=\"fa fa-shopping-cart\"></i></a>-->
                 </li>
             </ul>
         </div>
@@ -28,5 +29,32 @@ function component($namaproduk,$hargaproduk,$gambarproduk,$id_produk){
     
     ";
     echo $element;
+}
+
+function cartElement($namaproduk,$hargaproduk,$gambarproduk,$id_produk){
+    // $gambar = new $hargaproduk;
+    // $harga = new $gambarproduk;
+    $element="
+    <tr>
+    <td class=\"shoping__cart__item\">
+        <img src=\"$hargaproduk\" width=\"150px\" height=\"auto\" />
+    <h5>$namaproduk</h5>
+</td>
+<td class=\"shoping__cart__price\">Rp.$gambarproduk,00</td>
+<td class=\"shoping__cart__quantity\">
+    <div class=\"quantity\">
+        <div class=\"pro-qty\">
+            <input type=\"text\" value=\"1\" />
+        </div>
+    </div>
+</td>
+<td class=\"shoping__cart__total\">Rp.$gambarproduk,00</td>
+<td class=\"shoping__cart__item__close\">
+    <span><button class=\"btn btn-danger\" name=\"hapus\">Hapus</button></span>
+</td>
+</tr>
+
+";
+echo $element;
 }
 ?>

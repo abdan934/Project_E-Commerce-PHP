@@ -29,6 +29,10 @@ if(isset($_POST['add'])){
         }
         
     }else{
+        $item_array=array(
+            'id_produk'=>$_POST['id_produk']
+        );
+        // $_SESSION['keranjang'][$count] = $item_array;
     // create session baru
     $_SESSION['keranjang'][0]= $item_array;
     print_r($_SESSION['keranjang']);
@@ -103,13 +107,13 @@ if(isset($_POST['add'])){
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Beranda</a></li>
+                <li class="active"><a href="./index.php">Beranda</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
                 <li>
                     <a href="#">Halaman</a>
                     <ul class="header__menu__dropdown">
                         <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                        <li><a href="./shoping-cart.php">Shoping Cart</a></li>
                         <li><a href="./checkout.html">Check Out</a></li>
                         <li><a href="./blog-details.html">Blog Details</a></li>
                     </ul>
@@ -176,19 +180,19 @@ if(isset($_POST['add'])){
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt="" /></a>
+                        <a href="./index.php"><img src="img/logo.png" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Beranda</a></li>
+                            <li class="active"><a href="./index.php">Beranda</a></li>
                             <li><a href="./shop-grid.html">Shop</a></li>
                             <li>
                                 <a href="#">Halaman</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./shoping-cart.php">Shoping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
@@ -200,10 +204,22 @@ if(isset($_POST['add'])){
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
-                        <?php
-                        require_once("php/keranjang.php");
-                        // header();
-                        ?>
+                        <ul>
+                            <li>
+                                <a href="#"><i class="fa fa-heart"></i> <span>1</span></a>
+                            </li>
+                            <li>
+                                <a href="./shoping-cart.php"><i class="fa fa-shopping-bag nav-item active">
+                                    </i>
+                                    <span id="cart-count">
+                                        <?php
+                                        require_once("php/keranjang.php");
+                                        heade();
+                                        ?>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
                         <!-- <ul>
                             <li>
                                 <a href="#"><i class="fa fa-heart"></i> <span>1</span></a>
@@ -333,7 +349,7 @@ if(isset($_POST['add'])){
     <!-- Categories Section End -->
 
     <!-- Featured Section Begin -->
-    <form>
+    <form action="index.php" method="post">
 
         <section class="featured spad">
             <div class="container">
@@ -848,7 +864,7 @@ if(isset($_POST['add'])){
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt="" /></a>
+                            <a href="./index.php"><img src="img/logo.png" alt="" /></a>
                         </div>
                         <ul>
                             <li>Address: Kelas TI-2D</li>
