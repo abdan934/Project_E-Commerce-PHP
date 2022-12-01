@@ -4,6 +4,7 @@ session_start();
  require_once ("./php/createDb.php");
  require_once ("./php/component.php");
 ?>
+
 <!-- Humberger Begin -->
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">

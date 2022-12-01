@@ -28,7 +28,7 @@
             rel="stylesheet" />
 
         <!-- favicon -->
-        <link rel="shortcut icon" href="/img/logo.png">
+        <link rel="shortcut icon" href="img/logo.png">
 
         <!-- Css Styles -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />

@@ -13,6 +13,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
             rel="stylesheet" />
 
+        <!-- favicon -->
+        <link rel="shortcut icon" href="img/logo.png">
+
         <!-- Css Styles -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
@@ -40,7 +43,7 @@ include 'header.php';
         <a href="tambah-toko.php">
             <button class="site-btn ml-2">
                 <div class="hero__categories">
-                    <i class="bi bi-person-plus-fill"></i>
+                    <i class="bi bi-shop-window"></i>
                     Tambah Toko
                 </div>
             </button>

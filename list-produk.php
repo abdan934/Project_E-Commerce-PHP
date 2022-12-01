@@ -13,6 +13,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
             rel="stylesheet" />
 
+        <!-- favicon -->
+        <link rel="shortcut icon" href="img/logo.png">
+
         <!-- Css Styles -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
@@ -56,7 +59,9 @@ include 'header.php';
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th class="shoping__product">Products</th>
+                                <th class="shoping__product">
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    Products</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
@@ -69,12 +74,13 @@ include 'header.php';
                             <?php
                                     // session_start();
         include 'php/config.php';
+            $no = 1;
             $data = mysqli_query($conn,"select * from produk");
 			while($d=mysqli_fetch_array($data)){
                                     // component($row['nama_produk'],$row['harga_produk'],$row['gambar_produk'],$row['id_produk'],$row['satuan'],$row['expired'])
                                     ?>
                             <tr>
-                                <td class="shoping__cart__total"><?php echo $d['id_produk'] ?></td>
+                                <td class="shoping__cart__total"><?php echo $no++ //$d['id_produk'] ?></td>
                                 <td class="shoping__cart__item">
                                     <img src="<?php echo $d['gambar_produk'] ?>" alt="" width="100px" />
                                     <h5><?php echo $d['nama_produk'] ?></h5>
