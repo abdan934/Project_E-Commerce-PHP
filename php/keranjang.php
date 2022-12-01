@@ -1,12 +1,11 @@
 <?php
-function heade(){
-    
-    if(isset($_SESSION['keranjang'])){
-    $count = count($_SESSION['keranjang']);
-    echo $count;
+function head(){
+    if (isset($_SESSION['cart'])){
+        $count = count($_SESSION['cart']);
+        echo "<span id=\"cart_count\">$count</span>";
     }else{
-    echo"0";
-    };
+        echo "<span id=\"cart_count\">0</span>";
+    }
 }
 
 ?>
