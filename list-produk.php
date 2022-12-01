@@ -64,36 +64,26 @@ include 'header.php';
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <form action="" method="post" class="cart-items">
-                                    <?php
+                            <!-- <tr> -->
+                            <!-- <form action="" method="post" class="cart-items"> -->
+                            <?php
                                     // session_start();
-        include './php/config.php';
-        // include './php/createDb.php';
-        // include './php/component.php';
-
-
-        //  $nomor = 1;
-        // $data = mysqli_query($conn,"SELECT * FROM produk");
-        // $mysqli = new mysqli("localhost","root","","productdb");
-        // $sql = "SELECT * FROM produk";
-        // $result = $mysqli->query($sql);
-        // while($row = $result->fetch_assoc()){
+        include 'php/config.php';
             $data = mysqli_query($conn,"select * from produk");
 			while($d=mysqli_fetch_array($data)){
                                     // component($row['nama_produk'],$row['harga_produk'],$row['gambar_produk'],$row['id_produk'],$row['satuan'],$row['expired'])
                                     ?>
                             <tr>
-                                <td class="shoping__cart__total"><?php $d['id_produk'] ?></td>
+                                <td class="shoping__cart__total"><?php echo $d['id_produk'] ?></td>
                                 <td class="shoping__cart__item">
-                                    <img src="<?php $d['gambar_produk'] ?>" alt="" />
-                                    <h5><?php $d['nama_produk'] ?></h5>
+                                    <img src="<?php echo $d['gambar_produk'] ?>" alt="" width="100px" />
+                                    <h5><?php echo $d['nama_produk'] ?></h5>
                                 </td>
-                                <td class="shoping__cart__price"><?php $d['harga_produk'] ?></td>
+                                <td class="shoping__cart__price"><?php echo $d['harga_produk'] ?></td>
                                 <td class="shoping__cart__quantity">
-                                    <?php $d['satuan'] ?>
+                                    <?php echo $d['satuan'] ?>
                                 </td>
-                                <td class="shoping__cart__total"><?php $d['expired'] ?></td>
+                                <td class="shoping__cart__total"><?php echo $d['expired'] ?></td>
                                 <td class="shoping__cart__item__close">
                                     <span class="icon_close"></span>
                                 </td>
@@ -106,31 +96,12 @@ include 'header.php';
                                         href="hapus-produk.php?id=<?php echo $d['id_produk']; ?>">Hapus</a>
                                 </td>
                             </tr>
-                            <!-- <tr>
-                                <td class="shoping__cart__total"><?php // $nomor++ ?></td>
-                                img/cart/cart-3.jpg -->
-                            <!-- <td class="shoping__cart__item"> -->
-                            <!-- <img src="img/cart/cart-3.jpg<?php //$tampil['gambar_produk'] ?>" alt="" />
-                                        <h5>GEDANG <?php //$tampil['nama_produk']; ?></h5>
-                                    </td>
-                                    <td class="shoping__cart__price"><?php  //$tampil['harga_produk'] ?></td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                                                    <input type="text" value="1" />
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">$69.99</td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td> -->
-                            <!-- </tr> -->
 
                             <?php
         }
         ?>
-                            </form>
+                            <!-- </form> -->
+                            <!-- </tr> -->
                         </tbody>
                     </table>
                 </div>

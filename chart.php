@@ -94,6 +94,7 @@
         const ctx = document.getElementById('Chart');
 
         new Chart(ctx, {
+
             type: 'bar',
             data: {
                 labels: ['2023', '2024', '2025', '2026', '2027'],

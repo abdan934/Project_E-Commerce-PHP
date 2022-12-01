@@ -52,15 +52,34 @@ include './php/config.php';
 // include './php/createDb.php'
 
 if(isset($_POST['submit'])){
+    
+    if (isset($_POST['username'])) {
+        // $nis = $_POST['nis'];
+        $user = $_POST['username'];
+        $query = mysqli_query($conn, "SELECT username FROM user WHERE username = '$user'");
+       
+        // $query = mysqli_query($conn, "SELECT nis FROM tb_test WHERE nis = '$nis'"); 
+       
+        if($query->num_rows > 0) {
+         echo "<script>alert('Username sudah terdaftar');</script>";
+        } else {
+        //  mysqli_query($conn, "INSERT INTO tb_test (nis) VALUES ('$nis')");
+        mysqli_query($conn,"INSERT INTO user  SET  nama= '$_POST[nama]',username='$_POST[username]', password='$_POST[password]',level='user'");
+        echo "<script>alert('Akun Berhasil Ditambahkan');
+        window.location='login.php';
+        </script>";
+        }
+       }
 
-            mysqli_query($conn,"INSERT INTO user  SET  nama= '$_POST[nama]',username='$_POST[username]', password='$_POST[password]',level='user'");
-            echo "<script>alert('Akun Berhasil Ditambahkan');
-            window.location='login.php';
-            </script>";
+            // mysqli_query($conn,"INSERT INTO user  SET  nama= '$_POST[nama]',username='$_POST[username]', password='$_POST[password]',level='user'");
+            // echo "<script>alert('Akun Berhasil Ditambahkan');
+            // window.location='login.php';
+            // </script>";
 
     }else{
         // echo "<script>alert('Gagal Ditambahkan');
         // window.location='register.php';
         // </script>";
     }
+
 ?>

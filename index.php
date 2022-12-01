@@ -28,7 +28,7 @@
             rel="stylesheet" />
 
         <!-- favicon -->
-        <link rel="icon" type="image/x-icon" src="/img/logo.png">
+        <link rel="shortcut icon" href="/img/logo.png">
 
         <!-- Css Styles -->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
@@ -234,12 +234,12 @@ require_once ("./php/component.php");
             //   component(namaproduk:"Nangka",hargaproduk:45000,gambarproduk:"img/featured/nangka-3.jpg");
             //   component(namaproduk:"Telur Ayam",hargaproduk:30000,gambarproduk:"img/featured/telur-2.jpg");
                     $data = mysqli_query($conn,"SELECT * FROM produk");
-                    while($d= mysqli_fetch_array($data)){
+                    while($d= mysqli_fetch_assoc($data)){
 ?>
 
                         <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
                             <div class="featured__item">
-                                <div class="featured__item__pic set-bg" data-setbg="<?php $d['gambar_produk'] ?>">
+                                <div class="featured__item__pic set-bg" data-setbg="<?php echo $d['gambar_produk'] ?>">
                                     <ul class="featured__item__pic__hover">
                                         <li>
                                             <a href="#"><i class="fa fa-heart"></i></a>
@@ -253,8 +253,8 @@ require_once ("./php/component.php");
                                     </ul>
                                 </div>
                                 <div class="featured__item__text">
-                                    <h6><a href="#"><?php $d['nama_produk'] ?></a></h6>
-                                    <h5>Rp.<?php $d['harga_produk'] ?>,00</h5>
+                                    <h6><a href="#"><?php echo $d['nama_produk'] ?></a></h6>
+                                    <h5>Rp.<?php echo $d['harga_produk'] ?>,00</h5>
                                 </div>
                             </div>
                         </div>

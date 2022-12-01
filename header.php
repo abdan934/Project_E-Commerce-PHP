@@ -104,19 +104,26 @@ session_start();
                                 <a><i class="fa fa-user"></i>Hi,
                                     <?php
                                         
-            include './php/config.php';   
-            $username = mysqli_escape_string($conn,$_SESSION['username']);
+            include './php/config.php';  
+            if ($username = mysqli_escape_string($conn,$_SESSION['username'])) 
+            {
             // $username = $_SESSION['username'];
             $data = mysqli_query($conn,"SELECT * FROM user where username='$username'");
             $tampil = mysqli_fetch_array($data);
                                              echo $tampil['nama'];
+            }else{
+                echo "<script>alert('Request Timed Out');
+                window.location='login.php';
+                </script>";
+            }
                                         ?>
                                 </a>
                                 <!-- </a> -->
                             </div>
                             <span class="arrow_carrot"></span>
                             <ul>
-                                <a href="logout.php"><i class="ml-3"></i>
+                                <a href="alertlogout.php">
+                                    <i class=" ml-3"></i>
                                     Logout
                                 </a>
                             </ul>
@@ -169,7 +176,8 @@ session_start();
                         </li>
                     </ul>
 
-                    <div class="header__cart__price">Jumlah: <span>RP.300.000,00</span></div>
+                    <div class=" header__cart__price">Jumlah: <span>RP.300.000,00</span>
+                    </div>
                 </div>
             </div>
         </div>
