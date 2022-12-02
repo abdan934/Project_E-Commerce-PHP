@@ -9,7 +9,7 @@ session_start();
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
     <div class="humberger__menu__logo">
-        <a href="#"><img src="img/logo.png" alt="" /></a>
+        <a href="index.php"><img src="img/logo.png" alt="" /></a>
     </div>
     <div class="humberger__menu__cart">
         <ul>
@@ -154,6 +154,8 @@ session_start();
                                 <li><a href="list-produk.php">Produk</a></li>
                                 <li><a href="list-akun.php">User</a></li>
                                 <li><a href="chart.php">Chart</a></li>
+                                <li><a href="#">Shop Grid</a></li>
+
                             </ul>
                         </li>
                         <li><a href="./blog.html">Blog</a></li>

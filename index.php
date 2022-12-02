@@ -246,7 +246,7 @@ require_once ("./php/component.php");
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="latest-product__text">
-                            <h4>Produk Kg</h4>
+                            <h4>Top Produk</h4>
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
 
@@ -320,71 +320,91 @@ require_once ("./php/component.php");
                                         </div>
                                     </a> -->
                                 </div>
+                                <div class="latest-prdouct__slider__item">
+                                    <?php
+require_once ("./php/component.php");
+
+                    $data = mysqli_query($conn,"SELECT * FROM produk WHERE satuan ='Peti'");
+                    while($d= mysqli_fetch_assoc($data)){
+?>
+                                    <a href="#" class="latest-product__item">
+                                        <div class="latest-product__item__pic">
+                                            <img src="<?php echo $d['gambar_produk'] ?>" alt="" />
+                                        </div>
+                                        <div class="latest-product__item__text">
+                                            <h6>
+                                                <?php echo $d['nama_produk'] ?>
+                                            </h6>
+                                            <span>Rp.
+                                                <?php echo $d['harga_produk'] ?>,00
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <?php
+                    }
+                        ?>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
                     <div class="col-lg-4 col-md-6">
                         <div class="latest-product__text">
                             <h4>Top Rated Products</h4>
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
+
+                                    <?php
+                                    require_once ("./php/component.php");
+
+                                    $data = mysqli_query($conn,"SELECT * FROM produk WHERE satuan ='Dus'");
+                                    while($d= mysqli_fetch_assoc($data)){
+                                    ?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="img/latest-product/kangkung.jpg" alt="" />
+                                            <img src="<?php echo $d['gambar_produk'] ?>" alt="" />
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>Kangkung Fresh</h6>
-                                            <span>Rp.300.000,00</span>
+                                            <h6>
+                                                <?php echo $d['nama_produk'] ?>
+                                            </h6>
+                                            <span>Rp.
+                                                <?php echo $d['harga_produk'] ?>,00
+                                            </span>
                                         </div>
                                     </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/latest-product/tomat.jpg" alt="" />
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Tomat Merah</h6>
-                                            <span>Rp.300.000,00</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/latest-product/slebor.jpg" alt="" />
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Sawi Putih</h6>
-                                            <span>Rp.300.000,00</span>
-                                        </div>
-                                    </a>
+                                    <?php
+}
+?>
+
                                 </div>
                                 <div class="latest-prdouct__slider__item">
+                                    <?php
+require_once ("./php/component.php");
+
+$data = mysqli_query($conn,"SELECT * FROM produk WHERE satuan ='Karung'");
+while($d= mysqli_fetch_assoc($data)){
+?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="img/latest-product/sledri.jpg" alt="" />
+                                            <img src="<?php echo $d['gambar_produk'] ?>" alt="" />
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>Seledri</h6>
-                                            <span>Rp.300.000,00</span>
+                                            <h6>
+                                                <?php echo $d['nama_produk'] ?>
+                                            </h6>
+                                            <span>Rp.
+                                                <?php echo $d['harga_produk'] ?>,00
+                                            </span>
                                         </div>
                                     </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/latest-product/daun bawang.jpg" alt="" />
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Daun Bawang</h6>
-                                            <span>Rp.300.000,00</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/latest-product/sawi hijau.jpg" alt="" />
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Sawi Hijau</h6>
-                                            <span>Rp.300.000,00</span>
-                                        </div>
-                                    </a>
+                                    <?php
+}
+?>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>

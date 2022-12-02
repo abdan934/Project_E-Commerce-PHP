@@ -51,8 +51,19 @@
                     <td><input class="mt-2 mb-2 ml-3" type="text" id="gambar_produk" name="gambar_produk" required></td>
                 </tr>
                 <tr>
-                    <td>Satuan</td>
-                    <td><input class="mt-2 mb-2 ml-3" type="text" id="satuan" name="satuan" required></td>
+                    <td>Satuan </td>
+                    <td>
+                        <select class="form-select form-select-ls mt-2 mb-2 ml-3 " aria-label=".form-select-sm example"
+                            id="satuan" name="satuan">
+                            <option selected>-- Satuan --</option>
+                            <option value="Kg">Kilogram</option>
+                            <option value="Peti">Peti</option>
+                            <option value="Karung">Karung</option>
+                            <option value="Dus">Dus</option>
+                        </select>
+                    </td>
+                    <!-- <td>Satuan</td>
+                    <td><input class="mt-2 mb-2 ml-3" type="text" id="satuan" name="satuan" required></td> -->
                 </tr>
                 <tr>
                     <td>Expired</td>
