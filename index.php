@@ -182,57 +182,8 @@
                     <div class="row featured__filter">
 
                         <?php
-
-// require_once ("./php/createDb.php");
 require_once ("./php/component.php");
 
-//tambah keranjang
-// if (isset($_POST['add'])){
-//     /// print_r($_POST['product_id']);
-//     if(isset($_SESSION['cart'])){
-//         $item_array_id = array_column($_SESSION['cart'],column_key:"product_id");
-//         if(in_array($_POST['product_id'],$item_array_id)){
-//             echo "<script>alert('Product is already added in the cart..!')</script>";
-//             echo "<script>window.location = 'index.php'</script>";
-//         }else{
-
-//             $count = count($_SESSION['cart']);
-//             $item_array = array(
-//                 'product_id' => $_POST['product_id']
-//             );
-
-//             $_SESSION['cart'][$count] = $item_array;
-//         }
-
-//     }else{
-
-//         $item_array = array(
-//                 'product_id' => $_POST['product_id']
-        // );
-
-        // Create new session variable
-        // $_SESSION['cart'][0] = $item_array;
-        // print_r($_SESSION['cart']);
-    // }
-// };
-                    // include './php/createDb.php';
-                    //  $result = $database->getData();
-                    //  while ($row = mysqli_fetch_assoc($result)){
-                    //      component($row['nama_product'], $row['product_price'], $row['product_image'], $row['id']);
-                    //  }
-                // $result= $database->getData();
-                // while($row=mysqli_fetch_assoc($result)){
-                //     component($row['nama_produk'],$row['harga_produk'],$row['gambar_produk'],$row['id_produk'],$row['satuan'],['expired']);
-                // }
-                
-            //   component(namaproduk:"Beras Rakyat",hargaproduk:150000,gambarproduk:"img/featured/beras-3.jpg");
-            //   component(namaproduk:"Telur Puyuh",hargaproduk:100000,gambarproduk:"img/featured/telur-puyuh-2.jpg");
-            //   component(namaproduk:"Mangga",hargaproduk:50000,gambarproduk:"img/featured/pelem.jpg");
-            //   component(namaproduk:"Pisang Raja Nangka",hargaproduk:55000,gambarproduk:"img/featured/gedang-2.jpg");
-            //   component(namaproduk:"Strawberry",hargaproduk:120000,gambarproduk:"img/featured/strawbery-2.jpg");
-            //   component(namaproduk:"Jeruk Mandarin",hargaproduk:90000,gambarproduk:"img/featured/jeruk.jpg");
-            //   component(namaproduk:"Nangka",hargaproduk:45000,gambarproduk:"img/featured/nangka-3.jpg");
-            //   component(namaproduk:"Telur Ayam",hargaproduk:30000,gambarproduk:"img/featured/telur-2.jpg");
                     $data = mysqli_query($conn,"SELECT * FROM produk");
                     while($d= mysqli_fetch_assoc($data)){
 ?>
@@ -263,180 +214,6 @@ require_once ("./php/component.php");
                     }
                         ?>
 
-                        <!-- " #"<div
-                                                        class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                                                        <div class="featured__item">
-                                                            <div class="featured__item__pic set-bg"
-                                                                data-setbg="img/featured/beras-3.jpg">
-                                                                <ul class="featured__item__pic__hover">
-                                                                    <li>
-                                                                        <a href="#"><i class="fa fa-heart"></i></a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="#"><i class="fa fa-retweet"></i></a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="#"><i
-                                                                                class="fa fa-shopping-cart"></i></a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="featured__item__text">
-                                                                <h6><a href=>Beras Rakyat</a></h6>
-                                                                <h5>Rp.300.000,00</h5>
-                                                            </div>
-                                                        </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                                    <div class="featured__item">
-                                        <div class="featured__item__pic set-bg"
-                                            data-setbg="img/featured/telur-puyuh-2.jpg">
-                                            <ul class="featured__item__pic__hover">
-                                                <li>
-                                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-retweet"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="featured__item__text">
-                                            <h6><a href="#">Telur Puyuh</a></h6>
-                                            <h5>Rp.300.000,00</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-                                    <div class="featured__item">
-                                        <div class="featured__item__pic set-bg" data-setbg="img/featured/pelem.jpg">
-                                            <ul class="featured__item__pic__hover">
-                                                <li>
-                                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-retweet"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="featured__item__text">
-                                            <h6><a href="#">Mangga</a></h6>
-                                            <h5>Rp.300.000,00</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-                                    <div class="featured__item">
-                                        <div class="featured__item__pic set-bg" data-setbg="img/featured/gedang-2.jpg">
-                                            <ul class="featured__item__pic__hover">
-                                                <li>
-                                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-retweet"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="featured__item__text">
-                                            <h6><a href="#">Pisang Raja Nangka</a></h6>
-                                            <h5>Rp.300.000,00</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-                                    <div class="featured__item">
-                                        <div class="featured__item__pic set-bg"
-                                            data-setbg="img/featured/strawbery-2.jpg">
-                                            <ul class="featured__item__pic__hover">
-                                                <li>
-                                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-retweet"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="featured__item__text">
-                                            <h6><a href="#">Strawberry</a></h6>
-                                            <h5>Rp.300.000,00</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-                                    <div class="featured__item">
-                                        <div class="featured__item__pic set-bg" data-setbg="img/featured/jeruk.jpg">
-                                            <ul class="featured__item__pic__hover">
-                                                <li>
-                                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-retweet"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="featured__item__text">
-                                            <h6><a href="#">Jeruk Mandarin</a></h6>
-                                            <h5>Rp.300.000,00</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-                                    <div class="featured__item">
-                                        <div class="featured__item__pic set-bg" data-setbg="img/featured/nangka-3.jpg">
-                                            <ul class="featured__item__pic__hover">
-                                                <li>
-                                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-retweet"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="featured__item__text">
-                                            <h6><a href="#">Nangka</a></h6>
-                                            <h5>Rp.300.000,00</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-                                    <div class="featured__item">
-                                        <div class="featured__item__pic set-bg" data-setbg="img/featured/telur-2.jpg">
-                                            <ul class="featured__item__pic__hover">
-                                                <li>
-                                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-retweet"></i></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="featured__item__text">
-                                            <h6><a href="#">Telur Ayam</a></h6>
-                                            <h5>Rp.300.000,00</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>-->
 
                     </div>
             </section>
@@ -469,19 +246,33 @@ require_once ("./php/component.php");
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="latest-product__text">
-                            <h4>Latest Products</h4>
+                            <h4>Produk Kg</h4>
                             <div class="latest-product__slider owl-carousel">
                                 <div class="latest-prdouct__slider__item">
+
+                                    <?php
+require_once ("./php/component.php");
+
+                    $data = mysqli_query($conn,"SELECT * FROM produk WHERE satuan ='Kg'");
+                    while($d= mysqli_fetch_assoc($data)){
+?>
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="img/latest-product/kubis.jpg" alt="" />
+                                            <img src="<?php echo $d['gambar_produk'] ?>" alt="" />
                                         </div>
                                         <div class="latest-product__item__text">
-                                            <h6>Kubis fresh</h6>
-                                            <span>Rp.300.000,00</span>
+                                            <h6>
+                                                <?php echo $d['nama_produk'] ?>
+                                            </h6>
+                                            <span>Rp.
+                                                <?php echo $d['harga_produk'] ?>,00
+                                            </span>
                                         </div>
                                     </a>
-                                    <a href="#" class="latest-product__item">
+                                    <?php
+                    }
+                        ?>
+                                    <!-- <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="img/latest-product/pelem-1.jpg" alt="" />
                                         </div>
@@ -527,7 +318,7 @@ require_once ("./php/component.php");
                                             <h6>Terong Hijau</h6>
                                             <span>Rp.300.000,00</span>
                                         </div>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
